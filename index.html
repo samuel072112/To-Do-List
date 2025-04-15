@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colorful To Do List</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  
+</head>
+<body>
+  <div>
+    <h2>To Do List</h2>
+    <input type="text" id="inputId" placeholder="Enter Task" />
+    <button id="buttonId">Add</button>
+    <ul id="unorderListId"></ul>
+    <button id="showId">Show</button>
+  </div>
+
+  <script>
+    const inputElement = document.getElementById("inputId");
+    const buttonElement = document.getElementById("buttonId");
+    const unorderListElement = document.getElementById("unorderListId");
+    const showElement = document.getElementById("showId");
+    let DataArray = JSON.parse(localStorage.getItem("DataArray")) || [];
+    let boolean = true;
+
+    function createTaskElement(taskText) {
+      const liElement = document.createElement("li");
+
+      const spanText = document.createElement("span");
+      spanText.className = "task-text";
+      spanText.textContent = taskText;
+      liElement.appendChild(spanText);
+
+      const doneButton = document.createElement("button");
+      doneButton.textContent = "Done";
+      doneButton.className = "done-btn";
+      liElement.appendChild(doneButton);
+
+      const editButton = document.createElement("button");
+      editButton.textContent = "Edit";
+      editButton.className = "edit-btn";
+      liElement.appendChild(editButton);
+
+      const removeButton = document.createElement("button");
+      removeButton.textContent = "Remove";
+      removeButton.className = "remove-btn";
+      liElement.appendChild(removeButton);
+
+      doneButton.addEventListener("click", () => {
+        spanText.innerHTML = `<strike>${spanText.textContent}</strike>`;
+      });
+
+      editButton.addEventListener("click", () => {
+        const newText = prompt("Edit the Task", spanText.textContent);
+        if (newText) {
+          const index = DataArray.indexOf(spanText.textContent);
+          DataArray[index] = newText;
+          spanText.textContent = newText;
+          localStorage.setItem("DataArray", JSON.stringify(DataArray));
+        }
+      });
+
+      removeButton.addEventListener("click", () => {
+        const index = DataArray.indexOf(spanText.textContent);
+        if (index !== -1) {
+          DataArray.splice(index, 1);
+          localStorage.setItem("DataArray", JSON.stringify(DataArray));
+          liElement.remove();
+        }
+      });
+
+      return liElement;
+    }
+
+    buttonElement.addEventListener("click", () => {
+      const value = inputElement.value.trim();
+      if (value !== "") {
+        DataArray.push(value);
+        localStorage.setItem("DataArray", JSON.stringify(DataArray));
+        const liElement = createTaskElement(value);
+        unorderListElement.appendChild(liElement);
+        inputElement.value = "";
+        boolean = true;
+      } else {
+        if (boolean) {
+          const warning = document.createElement("li");
+          warning.textContent = "Enter a Valid Task";
+          warning.style.color = "red";
+          unorderListElement.appendChild(warning);
+          boolean = false;
+        }
+      }
+    });
+
+    showElement.addEventListener("click", () => {
+      console.log("Tasks in DataArray:", DataArray);
+    });
+
+    // Load existing tasks from localStorage
+    window.addEventListener("load", () => {
+      DataArray.forEach(task => {
+        const liElement = createTaskElement(task);
+        unorderListElement.appendChild(liElement);
+      });
+    });
+  </script>
+</body>
+</html>
