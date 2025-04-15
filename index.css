@@ -1,124 +1,121 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-  body {
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(to right, #c6e1ff, #5085a3, #0066ff);
-  }
+    body {
+      display: flex;
+      flex-direction: column;
+      background: url("img1.jpeg") no-repeat center center fixed;
+      background-size: cover;
+    }
 
-  main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-  }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
 
-  .container-box {
-    max-width: 600px;
-    width: 100%;
-    background-color: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  }
+    .container-box {
+      max-width: 600px;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
 
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #ff5e57;
-  }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ff5e57;
+    }
 
-  input[type="text"] {
-    width: 70%;
-    padding: 10px;
-    margin-right: 10px;
-    border: 2px solid #ffc107;
-    border-radius: 8px;
-  }
+    input[type="text"] {
+      width: 70%;
+      padding: 10px;
+      margin-right: 10px;
+      border: 2px solid #ffc107;
+      border-radius: 8px;
+    }
 
-  #buttonId {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    border: none;
-  }
+    #buttonId {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+    }
 
-  ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin-top: 20px;
-  }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: 20px;
+    }
 
-  li {
-    background-color: #f0f0f0;
-    padding: 12px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
+    li {
+      background-color: #f0f0f0;
+      padding: 12px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      flex-wrap: wrap;
+    }
 
-  li button {
-    margin-left: 5px;
-    padding: 6px 10px;
-    border-radius: 6px;
-    font-size: 0.85rem;
-    color: white;
-    border: none;
-  }
+    li button {
+      margin-left: 5px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: white;
+      border: none;
+    }
 
-  li button:nth-child(2) {
-    background-color: #198754;
-  }
+    li button:nth-child(2) {
+      background-color: #198754;
+    }
 
-  li button:nth-child(3) {
-    background-color: #ffc107;
-    color: black;
-  }
+    li button:nth-child(3) {
+      background-color: #ffc107;
+      color: black;
+    }
 
-  li button:nth-child(4) {
-    background-color: #dc3545;
-  }
+    li button:nth-child(4) {
+      background-color: #dc3545;
+    }
 
-  #showId {
-    display: block;
-    margin: 20px auto 0;
-    padding: 8px 16px;
-    background-color: #0d6efd;
-    color: white;
-    border-radius: 8px;
-    border: none;
-  }
+    #showId {
+      display: block;
+      margin: 20px auto 0;
+      padding: 8px 16px;
+      background-color: #0d6efd;
+      color: white;
+      border-radius: 8px;
+      border: none;
+    }
 
-  li strike {
-    flex-grow: 1;
-    margin-right: 10px;
-  }
+    .footer-section {
+      background-color: rgba(73, 73, 73, 0.5);
+      padding: 15px 0;
+      text-align: center;
+    }
 
-  .footer-section {
-    background-color: rgba(73, 73, 73, 0.232);
-    padding: 15px 0;
-    text-align: center;
-  }
+    .media-card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-  .media-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .copyrightText,
-  .footer-content {
-    font-size: 18px;
-    color: white;
-    margin: 10px 0;
-  }
+    .copyrightText,
+    .footer-content {
+      font-size: 18px;
+      color: rgb(0, 0, 0);
+      margin: 10px 0;
+    }
